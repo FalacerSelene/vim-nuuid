@@ -1,8 +1,13 @@
 nuuid.vim
 ====
 
-A simple Vim plugin for generating and inserting [UUIDs](http://en.wikipedia.org/wiki/Uuid) in Vim. The inspiration for this plugin is the "nguid" snippet expansion in JetBrains ReSharper plugin for Visual Studio. The intent is to make working with UUIDs easy in Vim. The plugin uses python to generate version 4 UUIDs and lets you use them in the current buffer. The UUIDs are inserted as a string of hexadecimal digits in the format "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx".
+A simple Vim plugin for generating and inserting [UUIDs](http://en.wikipedia.org/wiki/Uuid) in Vim. The inspiration for this plugin is the "nguid" snippet expansion in JetBrains ReSharper plugin for Visual Studio. The intent is to make working with UUIDs easy in Vim. The UUIDs are inserted as a string of hexadecimal digits in the format "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx".
 
+This plugin generates version 4 UUIDs, I.E. random UUIDs. It will attempt to generate them from the following sources:
+
+- The system `uuidgen` command, if installed.
+- Using `python` (python2) vim integration, if compiled in.
+- Using native random number generaton.
 
 Usage
 ----
