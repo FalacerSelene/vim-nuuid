@@ -19,7 +19,7 @@ from uuid import uuid4
 vim.command("let l:new_uuid = '%s'"% str(uuid4()))
 endpy
     return g:nuuid_case == "lower" ? tolower(l:new_uuid) : toupper(l:new_uuid)
-  else
+  elseif exists('*rand')
     let l:seed = srand()
     " Generate 4 x 4 bytes of random data.
     let l:one = rand(l:seed)
@@ -37,6 +37,9 @@ endpy
     \ and(l:three, 0xffff0000) >> 0x10,
     \ and(l:three, 0x0000ffff),
     \ l:four)
+  else
+    echoerr "No UUID generator available"
+    return ""
   endif
 endfunction
 
